@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CorpusExplorer.Sdk.Model;
 
 namespace CorpusExplorer.YAAC.View.Abstract
 {
@@ -16,5 +17,7 @@ namespace CorpusExplorer.YAAC.View.Abstract
     {
       InitializeComponent();
     }
+
+    public Selection Selection { get; set; }
   }
 }

@@ -29,17 +29,18 @@
     private void InitializeComponent()
     {
       this.panel2 = new System.Windows.Forms.Panel();
-      this.checkBox3 = new System.Windows.Forms.CheckBox();
-      this.checkBox2 = new System.Windows.Forms.CheckBox();
-      this.checkBox1 = new System.Windows.Forms.CheckBox();
+      this.chk_regex = new System.Windows.Forms.CheckBox();
+      this.chk_case = new System.Windows.Forms.CheckBox();
+      this.chk_words = new System.Windows.Forms.CheckBox();
       this.label1 = new System.Windows.Forms.Label();
       this.panel1 = new System.Windows.Forms.Panel();
-      this.textBox1 = new System.Windows.Forms.TextBox();
+      this.txt_query = new System.Windows.Forms.TextBox();
       this.panel3 = new System.Windows.Forms.Panel();
-      this.button2 = new System.Windows.Forms.Button();
-      this.button1 = new System.Windows.Forms.Button();
+      this.btn_stop = new System.Windows.Forms.Button();
+      this.btn_start = new System.Windows.Forms.Button();
       this.panel4 = new System.Windows.Forms.Panel();
       this.panel5 = new System.Windows.Forms.Panel();
+      this.work_search = new System.ComponentModel.BackgroundWorker();
       this.panel2.SuspendLayout();
       this.panel1.SuspendLayout();
       this.panel3.SuspendLayout();
@@ -47,9 +48,9 @@
       // 
       // panel2
       // 
-      this.panel2.Controls.Add(this.checkBox3);
-      this.panel2.Controls.Add(this.checkBox2);
-      this.panel2.Controls.Add(this.checkBox1);
+      this.panel2.Controls.Add(this.chk_regex);
+      this.panel2.Controls.Add(this.chk_case);
+      this.panel2.Controls.Add(this.chk_words);
       this.panel2.Controls.Add(this.label1);
       this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
       this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -57,41 +58,41 @@
       this.panel2.Size = new System.Drawing.Size(572, 30);
       this.panel2.TabIndex = 3;
       // 
-      // checkBox3
+      // chk_regex
       // 
-      this.checkBox3.AutoSize = true;
-      this.checkBox3.Dock = System.Windows.Forms.DockStyle.Left;
-      this.checkBox3.Location = new System.Drawing.Point(207, 0);
-      this.checkBox3.Name = "checkBox3";
-      this.checkBox3.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-      this.checkBox3.Size = new System.Drawing.Size(57, 30);
-      this.checkBox3.TabIndex = 3;
-      this.checkBox3.Text = "Regex";
-      this.checkBox3.UseVisualStyleBackColor = true;
+      this.chk_regex.AutoSize = true;
+      this.chk_regex.Dock = System.Windows.Forms.DockStyle.Left;
+      this.chk_regex.Location = new System.Drawing.Point(207, 0);
+      this.chk_regex.Name = "chk_regex";
+      this.chk_regex.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+      this.chk_regex.Size = new System.Drawing.Size(57, 30);
+      this.chk_regex.TabIndex = 3;
+      this.chk_regex.Text = "Regex";
+      this.chk_regex.UseVisualStyleBackColor = true;
       // 
-      // checkBox2
+      // chk_case
       // 
-      this.checkBox2.AutoSize = true;
-      this.checkBox2.Dock = System.Windows.Forms.DockStyle.Left;
-      this.checkBox2.Location = new System.Drawing.Point(157, 0);
-      this.checkBox2.Name = "checkBox2";
-      this.checkBox2.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-      this.checkBox2.Size = new System.Drawing.Size(50, 30);
-      this.checkBox2.TabIndex = 2;
-      this.checkBox2.Text = "Case";
-      this.checkBox2.UseVisualStyleBackColor = true;
+      this.chk_case.AutoSize = true;
+      this.chk_case.Dock = System.Windows.Forms.DockStyle.Left;
+      this.chk_case.Location = new System.Drawing.Point(157, 0);
+      this.chk_case.Name = "chk_case";
+      this.chk_case.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+      this.chk_case.Size = new System.Drawing.Size(50, 30);
+      this.chk_case.TabIndex = 2;
+      this.chk_case.Text = "Case";
+      this.chk_case.UseVisualStyleBackColor = true;
       // 
-      // checkBox1
+      // chk_words
       // 
-      this.checkBox1.AutoSize = true;
-      this.checkBox1.Dock = System.Windows.Forms.DockStyle.Left;
-      this.checkBox1.Location = new System.Drawing.Point(100, 0);
-      this.checkBox1.Name = "checkBox1";
-      this.checkBox1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-      this.checkBox1.Size = new System.Drawing.Size(57, 30);
-      this.checkBox1.TabIndex = 1;
-      this.checkBox1.Text = "Words";
-      this.checkBox1.UseVisualStyleBackColor = true;
+      this.chk_words.AutoSize = true;
+      this.chk_words.Dock = System.Windows.Forms.DockStyle.Left;
+      this.chk_words.Location = new System.Drawing.Point(100, 0);
+      this.chk_words.Name = "chk_words";
+      this.chk_words.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+      this.chk_words.Size = new System.Drawing.Size(57, 30);
+      this.chk_words.TabIndex = 1;
+      this.chk_words.Text = "Words";
+      this.chk_words.UseVisualStyleBackColor = true;
       // 
       // label1
       // 
@@ -106,7 +107,7 @@
       // 
       // panel1
       // 
-      this.panel1.Controls.Add(this.textBox1);
+      this.panel1.Controls.Add(this.txt_query);
       this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
       this.panel1.Location = new System.Drawing.Point(0, 30);
       this.panel1.Name = "panel1";
@@ -114,42 +115,44 @@
       this.panel1.Size = new System.Drawing.Size(572, 30);
       this.panel1.TabIndex = 4;
       // 
-      // textBox1
+      // txt_query
       // 
-      this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBox1.Location = new System.Drawing.Point(0, 5);
-      this.textBox1.Name = "textBox1";
-      this.textBox1.Size = new System.Drawing.Size(572, 20);
-      this.textBox1.TabIndex = 0;
+      this.txt_query.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.txt_query.Location = new System.Drawing.Point(0, 5);
+      this.txt_query.Name = "txt_query";
+      this.txt_query.Size = new System.Drawing.Size(572, 20);
+      this.txt_query.TabIndex = 0;
       // 
       // panel3
       // 
-      this.panel3.Controls.Add(this.button2);
-      this.panel3.Controls.Add(this.button1);
+      this.panel3.Controls.Add(this.btn_stop);
+      this.panel3.Controls.Add(this.btn_start);
       this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
       this.panel3.Location = new System.Drawing.Point(0, 60);
       this.panel3.Name = "panel3";
       this.panel3.Size = new System.Drawing.Size(572, 30);
       this.panel3.TabIndex = 5;
       // 
-      // button2
+      // btn_stop
       // 
-      this.button2.Enabled = false;
-      this.button2.Location = new System.Drawing.Point(84, 4);
-      this.button2.Name = "button2";
-      this.button2.Size = new System.Drawing.Size(75, 23);
-      this.button2.TabIndex = 1;
-      this.button2.Text = "Stop";
-      this.button2.UseVisualStyleBackColor = true;
+      this.btn_stop.Enabled = false;
+      this.btn_stop.Location = new System.Drawing.Point(84, 4);
+      this.btn_stop.Name = "btn_stop";
+      this.btn_stop.Size = new System.Drawing.Size(75, 23);
+      this.btn_stop.TabIndex = 1;
+      this.btn_stop.Text = "Stop";
+      this.btn_stop.UseVisualStyleBackColor = true;
+      this.btn_stop.Click += new System.EventHandler(this.btn_stop_Click);
       // 
-      // button1
+      // btn_start
       // 
-      this.button1.Location = new System.Drawing.Point(3, 4);
-      this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(75, 23);
-      this.button1.TabIndex = 0;
-      this.button1.Text = "Start";
-      this.button1.UseVisualStyleBackColor = true;
+      this.btn_start.Location = new System.Drawing.Point(3, 4);
+      this.btn_start.Name = "btn_start";
+      this.btn_start.Size = new System.Drawing.Size(75, 23);
+      this.btn_start.TabIndex = 0;
+      this.btn_start.Text = "Start";
+      this.btn_start.UseVisualStyleBackColor = true;
+      this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
       // 
       // panel4
       // 
@@ -166,6 +169,11 @@
       this.panel5.Name = "panel5";
       this.panel5.Size = new System.Drawing.Size(572, 30);
       this.panel5.TabIndex = 7;
+      // 
+      // work_search
+      // 
+      this.work_search.DoWork += new System.ComponentModel.DoWorkEventHandler(this.work_search_DoWork);
+      this.work_search.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.work_search_RunWorkerCompleted);
       // 
       // SearchtermBase
       // 
@@ -188,17 +196,18 @@
     }
 
     #endregion
-    private System.Windows.Forms.CheckBox checkBox3;
-    private System.Windows.Forms.CheckBox checkBox2;
-    private System.Windows.Forms.CheckBox checkBox1;
+    private System.Windows.Forms.CheckBox chk_regex;
+    private System.Windows.Forms.CheckBox chk_case;
+    private System.Windows.Forms.CheckBox chk_words;
     private System.Windows.Forms.Label label1;
     protected System.Windows.Forms.Panel panel2;
     protected System.Windows.Forms.Panel panel1;
     protected System.Windows.Forms.Panel panel3;
     protected System.Windows.Forms.Panel panel4;
     protected System.Windows.Forms.Panel panel5;
-    private System.Windows.Forms.TextBox textBox1;
-    private System.Windows.Forms.Button button2;
-    private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.TextBox txt_query;
+    private System.Windows.Forms.Button btn_stop;
+    private System.Windows.Forms.Button btn_start;
+    private System.ComponentModel.BackgroundWorker work_search;
   }
 }

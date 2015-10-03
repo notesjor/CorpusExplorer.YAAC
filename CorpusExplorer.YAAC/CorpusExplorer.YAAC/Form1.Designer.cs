@@ -40,8 +40,7 @@
       this.splitContainer1 = new System.Windows.Forms.SplitContainer();
       this.list_FileList = new System.Windows.Forms.ListBox();
       this.panel2 = new System.Windows.Forms.Panel();
-      this.shortInformationLabel2 = new CorpusExplorer.YAAC.Controls.ShortInformationLabel();
-      this.shortInformationLabel1 = new CorpusExplorer.YAAC.Controls.ShortInformationLabel();
+      this.sil_documents = new CorpusExplorer.YAAC.Controls.ShortInformationLabel();
       this.panel1 = new System.Windows.Forms.Panel();
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
       this.label1 = new System.Windows.Forms.Label();
@@ -61,6 +60,7 @@
       this.wordlistView1 = new CorpusExplorer.YAAC.View.WordlistView();
       this.page_keywordlist = new System.Windows.Forms.TabPage();
       this.keywordView1 = new CorpusExplorer.YAAC.View.KeywordView();
+      this.sil_token = new CorpusExplorer.YAAC.Controls.ShortInformationLabel();
       this.menuStrip1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
       this.splitContainer1.Panel1.SuspendLayout();
@@ -107,31 +107,31 @@
       // menu_file_open_file
       // 
       this.menu_file_open_file.Name = "menu_file_open_file";
-      this.menu_file_open_file.Size = new System.Drawing.Size(152, 22);
+      this.menu_file_open_file.Size = new System.Drawing.Size(146, 22);
       this.menu_file_open_file.Text = "Open File(s)";
       this.menu_file_open_file.Click += new System.EventHandler(this.menu_file_open_file_Click);
       // 
       // toolStripSeparator1
       // 
       this.toolStripSeparator1.Name = "toolStripSeparator1";
-      this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+      this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
       // 
       // menu_file_close_all
       // 
       this.menu_file_close_all.Name = "menu_file_close_all";
-      this.menu_file_close_all.Size = new System.Drawing.Size(152, 22);
+      this.menu_file_close_all.Size = new System.Drawing.Size(146, 22);
       this.menu_file_close_all.Text = "Close All Files";
       this.menu_file_close_all.Click += new System.EventHandler(this.menu_file_close_all_Click);
       // 
       // toolStripSeparator2
       // 
       this.toolStripSeparator2.Name = "toolStripSeparator2";
-      this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+      this.toolStripSeparator2.Size = new System.Drawing.Size(143, 6);
       // 
       // menu_exit
       // 
       this.menu_exit.Name = "menu_exit";
-      this.menu_exit.Size = new System.Drawing.Size(152, 22);
+      this.menu_exit.Size = new System.Drawing.Size(146, 22);
       this.menu_exit.Text = "Exit";
       this.menu_exit.Click += new System.EventHandler(this.menu_exit_Click);
       // 
@@ -146,6 +146,7 @@
       this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
       this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
       this.helpToolStripMenuItem.Text = "Help";
+      this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
       // 
       // splitContainer1
       // 
@@ -172,40 +173,29 @@
       this.list_FileList.FormattingEnabled = true;
       this.list_FileList.Location = new System.Drawing.Point(0, 30);
       this.list_FileList.Name = "list_FileList";
-      this.list_FileList.Size = new System.Drawing.Size(194, 455);
+      this.list_FileList.Size = new System.Drawing.Size(194, 453);
       this.list_FileList.TabIndex = 3;
       // 
       // panel2
       // 
-      this.panel2.Controls.Add(this.shortInformationLabel2);
-      this.panel2.Controls.Add(this.shortInformationLabel1);
+      this.panel2.Controls.Add(this.sil_token);
+      this.panel2.Controls.Add(this.sil_documents);
       this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.panel2.Location = new System.Drawing.Point(0, 485);
+      this.panel2.Location = new System.Drawing.Point(0, 483);
       this.panel2.Name = "panel2";
-      this.panel2.Size = new System.Drawing.Size(194, 52);
+      this.panel2.Size = new System.Drawing.Size(194, 54);
       this.panel2.TabIndex = 2;
       // 
-      // shortInformationLabel2
+      // sil_documents
       // 
-      this.shortInformationLabel2.Dock = System.Windows.Forms.DockStyle.Top;
-      this.shortInformationLabel2.Label = "Token:";
-      this.shortInformationLabel2.Location = new System.Drawing.Point(0, 24);
-      this.shortInformationLabel2.Name = "shortInformationLabel2";
-      this.shortInformationLabel2.Size = new System.Drawing.Size(194, 28);
-      this.shortInformationLabel2.SplitterDistance = 0.39896373056994816D;
-      this.shortInformationLabel2.TabIndex = 1;
-      this.shortInformationLabel2.Value = "0000";
-      // 
-      // shortInformationLabel1
-      // 
-      this.shortInformationLabel1.Dock = System.Windows.Forms.DockStyle.Top;
-      this.shortInformationLabel1.Label = "Documents:";
-      this.shortInformationLabel1.Location = new System.Drawing.Point(0, 0);
-      this.shortInformationLabel1.Name = "shortInformationLabel1";
-      this.shortInformationLabel1.Size = new System.Drawing.Size(194, 24);
-      this.shortInformationLabel1.SplitterDistance = 0.39896373056994816D;
-      this.shortInformationLabel1.TabIndex = 0;
-      this.shortInformationLabel1.Value = "0000";
+      this.sil_documents.Dock = System.Windows.Forms.DockStyle.Top;
+      this.sil_documents.Label = "Documents:";
+      this.sil_documents.Location = new System.Drawing.Point(0, 0);
+      this.sil_documents.Name = "sil_documents";
+      this.sil_documents.Size = new System.Drawing.Size(194, 24);
+      this.sil_documents.SplitterDistance = 0.39896373056994816D;
+      this.sil_documents.TabIndex = 0;
+      this.sil_documents.Value = "0";
       // 
       // panel1
       // 
@@ -401,6 +391,17 @@
       this.keywordView1.Size = new System.Drawing.Size(572, 505);
       this.keywordView1.TabIndex = 0;
       // 
+      // sil_token
+      // 
+      this.sil_token.Dock = System.Windows.Forms.DockStyle.Top;
+      this.sil_token.Label = "Token:";
+      this.sil_token.Location = new System.Drawing.Point(0, 24);
+      this.sil_token.Name = "sil_token";
+      this.sil_token.Size = new System.Drawing.Size(194, 24);
+      this.sil_token.SplitterDistance = 0.39896373056994816D;
+      this.sil_token.TabIndex = 1;
+      this.sil_token.Value = "0";
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -455,8 +456,7 @@
     private System.Windows.Forms.TabPage page_wordlist;
     private System.Windows.Forms.TabPage page_keywordlist;
     private System.Windows.Forms.PictureBox pictureBox1;
-    private Controls.ShortInformationLabel shortInformationLabel2;
-    private Controls.ShortInformationLabel shortInformationLabel1;
+    private Controls.ShortInformationLabel sil_documents;
     private System.Windows.Forms.PictureBox pictureBox3;
     private System.Windows.Forms.ToolStripMenuItem menu_file_open_file;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -470,6 +470,7 @@
     private View.CooccurrenceView cooccurrenceView1;
     private View.WordlistView wordlistView1;
     private View.KeywordView keywordView1;
+    private Controls.ShortInformationLabel sil_token;
   }
 }
 

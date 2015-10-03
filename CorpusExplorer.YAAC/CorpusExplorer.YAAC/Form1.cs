@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -62,28 +63,44 @@ namespace CorpusExplorer.YAAC
 
       Project.Add(tagger.Execute());
 
-      RefreshFileList();
+      RefreshDataBinding();
     }
 
     private void menu_file_close_all_Click(object sender, EventArgs e)
     {
       _ecosystem.ProjectNew();
-      RefreshFileList();
+      RefreshDataBinding();
     }
 
-    private void RefreshFileList()
+    private void RefreshDataBinding()
     {
       list_FileList.Items.Clear();
 
-      foreach (var displayname in Project.DocumentDisplaynames)
+      foreach (var displayname in Project.SelectAll.DocumentDisplaynames)
       {
         list_FileList.Items.Add(displayname);
       }
+
+      sil_documents.Value = Project.SelectAll.CountDocuments.ToString();
+      sil_documents.Value = Project.SelectAll.CountToken.ToString();
+
+      concordancePlotView1.Selection = Project.SelectAll;
+      concordanceView1.Selection = Project.SelectAll;
+      cooccurrenceView1.Selection = Project.SelectAll;
+      fileView1.Selection = Project.SelectAll;
+      keywordView1.Selection = Project.SelectAll;
+      nGramView1.Selection = Project.SelectAll;
+      wordlistView1.Selection = Project.SelectAll;
     }
 
     private void Form1_Load(object sender, EventArgs e)
     {
 
+    }
+
+    private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Process.Start("https://github.com/notesjor/CorpusExplorer.YAAC");
     }
   }
 }

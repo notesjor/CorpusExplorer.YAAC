@@ -129,6 +129,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Delegates\SortSearchCompareDelegate.cs" />
+    <Compile Include="Controls\Delegates\SortSearchDelegate.cs" />
+    <Compile Include="Controls\Delegates\StartSearchDelegate.cs" />
     <Compile Include="Controls\SearchtermBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
